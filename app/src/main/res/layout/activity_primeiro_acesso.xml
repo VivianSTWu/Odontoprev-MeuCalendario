@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PrimeiroAcesso">
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#0266FF"
+        android:gravity="bottom"
+        android:paddingBottom="15dp"
+        android:text="Meu Calendário"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="start"
+            android:text="Para usar esta ferramenta, precisamos que você nos informe algumas coisinhas, tudo bem? \n\nVocê só vai precisar preencher isso uma vez."
+            android:textAlignment="viewStart"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btn_questionario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#0266FF"
+            android:text="Vamos lá!"
+            android:textColorHighlight="#0266FF"
+            android:textColorHint="#0266FF"
+            android:textColorLink="#0266FF"
+            app:rippleColor="#0266FF" />
+    </LinearLayout>
+
+</LinearLayout>

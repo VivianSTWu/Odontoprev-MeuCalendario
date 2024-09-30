@@ -1,0 +1,23 @@
+<resources>
+    <!-- Tema geral do aplicativo -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Personalizações gerais do app -->
+    </style>
+
+    <!-- Tema personalizado para o DatePickerDialog -->
+    <style name="CustomDatePickerTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <!-- Cor do fundo do DatePicker -->
+        <item name="colorSurface">#FFFFFF</item> <!-- Cor de fundo do diálogo -->
+        <!-- Cor dos títulos (ex: mês, ano) -->
+        <item name="colorOnSurface">#0266FF</item> <!-- Cor do texto -->
+        <!-- Cor dos ícones (botões de navegação) -->
+        <item name="colorAccent">#FF867A</item>
+        <!-- Cor dos botões (OK e Cancelar) -->
+        <item name="android:textColorPrimary">#545454</item>
+        <!-- Cor dos dias selecionados -->
+        <item name="colorPrimary">#0266FF</item>
+        <item name="colorPrimaryVariant">#fc03db</item>
+        <!-- Cor dos dias não selecionados -->
+        <item name="android:textColorSecondary">#fc3030</item>
+    </style>
+</resources>

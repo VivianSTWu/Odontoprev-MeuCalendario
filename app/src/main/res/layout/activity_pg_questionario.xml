@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Pg_Questionario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Header"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#0266FF"
+            android:gravity="bottom"
+            android:paddingBottom="15dp"
+            android:text="Meu Calendário"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingStart="20dp">
+
+        <TextView
+            android:id="@+id/pergunta1"
+            android:layout_width="305dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Quando foi a sua última vez que foi ao dentista? Caso não saiba a data exata, tente informar a data mais próxima possível. (Obrigatória)"
+            android:textColor="#000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/baseline_calendar_month_24" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/linha"
+            android:layout_width="210dp"
+            android:layout_height="1dp"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/pergunta2"
+            android:layout_width="306dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Você possui alguma dessas doenças? Selecione todas que se aplicam."
+            android:textColor="#000000" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/checkbox_ripple"
+            android:text="Diabetes"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/checkbox_ripple"
+            android:text="Osteoporose"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/checkbox_ripple"
+            android:text="Doenças cardiovasculares"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox4"
+            android:layout_width="301dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/checkbox_ripple"
+            android:gravity="top|center_vertical"
+            android:text="Doenças autoimunes (como Lúpus e Síndrome de Sjögren)"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/checkbox_ripple"
+            android:text="HIV/AIDS"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/checkbox_ripple"
+            android:text="Câncer de boca"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <TextView
+            android:id="@+id/pergunta3"
+            android:layout_width="306dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Você utiliza algum dos aparelhos abaixo? Se sim, por favor selecione os que se aplicam."
+            android:textColor="#000000" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/checkbox_ripple"
+            android:text="Aparelho dental/ortodôntico"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox8"
+            android:layout_width="319dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/checkbox_ripple"
+            android:clipToPadding="false"
+            android:text="Protetor bucal (usado em esportes ou em casos de bruxismo)"
+            android:textColorLink="#0266FF"
+            android:textSize="14sp"
+            app:buttonTint="@color/checkbox_color"
+            app:rippleColor="@color/radio_button_ripple" />
+
+        <TextView
+            android:id="@+id/pergunta4"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="Última pergunta: quando você passou a utilizar a escova de dentes que está usando atualmente? (Obrigatória)"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_custom"
+                android:clipToPadding="false"
+                android:text="Há 1 mês"
+                app:buttonTint="@color/checkbox_color"
+                app:rippleColor="@color/radio_button_ripple" />
+
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_custom"
+                android:text="Há 2 meses"
+                app:buttonTint="@color/checkbox_color"
+                app:rippleColor="@color/radio_button_ripple" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_custom"
+                android:text="Há 3 meses ou mais"
+                app:buttonTint="@color/checkbox_color"
+                app:rippleColor="@color/radio_button_ripple" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_custom"
+                android:clipToPadding="false"
+                android:text="Não me lembro"
+                app:buttonTint="@color/checkbox_color"
+                app:rippleColor="@color/radio_button_ripple" />
+
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_enviar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#0266FF"
+                android:text="Enviar"
+                android:textColorHighlight="#0266FF"
+                android:textColorHint="#0266FF"
+                android:textColorLink="#0266FF"
+                app:rippleColor="#0266FF" />
+
+            <TextView
+                android:id="@+id/msg_erro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="Responda as perguntas obrigatórias"
+                android:textColor="#FF0000"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
