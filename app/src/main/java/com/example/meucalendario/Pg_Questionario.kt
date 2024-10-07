@@ -1,10 +1,15 @@
 package com.example.meucalendario
 
 import android.app.DatePickerDialog
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -30,7 +35,12 @@ class Pg_Questionario : AppCompatActivity() {
         val btnEnviar = findViewById<Button>(R.id.btn_enviar)
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
 
+        val textViewIds = listOf(
+            R.id.pergunta1,
+            R.id.pergunta4
+        )
 
+        formatTextViewsWithAsterisks(textViewIds)
 
         editTextDate.setOnClickListener {
             showDatePickerDialog(editTextDate)
@@ -48,6 +58,29 @@ class Pg_Questionario : AppCompatActivity() {
             }
         }
 }
+
+    private fun formatTextViewsWithAsterisks(ids: List<Int>) {
+        for (id in ids) {
+            val textView = findViewById<TextView>(id)
+            val text = textView.text.toString()
+            if (text.contains("*")) {
+                val spannable = SpannableString(text)
+                var index = text.indexOf("*")
+                while (index >= 0) {
+                    spannable.setSpan(
+                        ForegroundColorSpan(Color.RED),
+                        index,
+                        index + 1,
+                        SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    index = text.indexOf("*", index + 1)
+                }
+                textView.text = spannable
+            }
+        }
+    }
+
+
     private fun showDatePickerDialog(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)

@@ -46,7 +46,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
-            android:text="Quando foi a sua última vez que foi ao dentista? Caso não saiba a data exata, tente informar a data mais próxima possível. (Obrigatória)"
+            android:text="Quando foi a sua última vez que foi ao dentista? Caso não saiba a data exata, tente informar a data mais próxima possível. *"
             android:textColor="#000000" />
 
         <LinearLayout
@@ -203,7 +203,7 @@
             android:layout_marginTop="35dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
-            android:text="Última pergunta: quando você passou a utilizar a escova de dentes que está usando atualmente? (Obrigatória)"
+            android:text="Última pergunta: quando você passou a utilizar a escova de dentes que está usando atualmente? *"
             android:textColor="#000000" />
 
         <RadioGroup
@@ -278,7 +278,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:gravity="bottom"
-                android:text="Responda as perguntas obrigatórias"
+                android:text="Responda as perguntas obrigatórias (*)"
                 android:textColor="#FF0000"
                 android:visibility="invisible" />
         </LinearLayout>
