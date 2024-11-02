@@ -12,21 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MeuCalendario"
         tools:targetApi="31">
-
         <!-- Primeira tela a ser exibida no app -->
         <activity
-            android:name=".PrimeiroAcesso"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".Pg_Questionario"
+            android:name=".Activities.Pg_Questionario"
             android:exported="true" />
-
     </application>
 
 </manifest>

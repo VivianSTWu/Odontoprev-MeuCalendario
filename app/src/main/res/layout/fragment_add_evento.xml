@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".QuestionarioFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Header"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#0266FF"
+                android:gravity="bottom"
+                android:paddingBottom="15dp"
+                android:text="Meu Calendário"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingStart="20dp">
+
+            <TextView
+                android:id="@+id/titleEditDetalhes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adicione uma nova entrada"
+                android:textColor="#2B7FFF"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_consulta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_custom"
+                    android:clipToPadding="false"
+                    android:text="Consulta com dentista"
+                    app:buttonTint="@color/checkbox_color"
+                    app:rippleColor="@color/radio_button_ripple" />
+
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_procedimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_custom"
+                    android:text="Procedimento"
+                    app:buttonTint="@color/checkbox_color"
+                    app:rippleColor="@color/radio_button_ripple" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_escova"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_custom"
+                    android:text="Troca de escova de dente"
+                    app:buttonTint="@color/checkbox_color"
+                    app:rippleColor="@color/radio_button_ripple" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_protetor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_custom"
+                    android:clipToPadding="false"
+                    android:text="Troca de aparelho bucal"
+                    app:buttonTint="@color/checkbox_color"
+                    app:rippleColor="@color/radio_button_ripple" />
+
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/baseline_calendar_month_24" />
+
+                <EditText
+                    android:id="@+id/editTextDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:focusable="false" />
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linha"
+                android:layout_width="210dp"
+                android:layout_height="1dp"
+                android:background="#000000" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_enviar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:backgroundTint="#0266FF"
+                    android:text="Adicionar"
+                    android:textColorHighlight="#0266FF"
+                    android:textColorHint="#0266FF"
+                    android:textColorLink="#0266FF"
+                    app:rippleColor="#0266FF" />
+
+                <TextView
+                    android:id="@+id/msg_erro"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="Preencha todos os campos"
+                    android:textColor="#FF0000"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Pg_Questionario">
+    tools:context=".Activities.Pg_Questionario">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:background="#0266FF"
             android:gravity="bottom"
             android:paddingBottom="15dp"
-            android:text="Meu Calendário"
+            android:text="Meu Calendário ACTIVITY"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />

@@ -1,4 +1,4 @@
-package com.example.meucalendario
+package com.example.meucalendario.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,13 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.meucalendario.R
 
 class PrimeiroAcesso : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Primeiro infla o layout
-        setContentView(R.layout.activity_primeiro_acesso)
+        setContentView(R.layout.fragment_primeiro_acesso)
 
         // Depois referencie o botão pelo ID
         val sendButton: Button = findViewById(R.id.btn_questionario)

@@ -1,15 +1,12 @@
-package com.example.meucalendario
+package com.example.meucalendario.Activities
 
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
-import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import com.example.meucalendario.R
 import java.util.Calendar
 
 class Pg_Questionario : AppCompatActivity() {
