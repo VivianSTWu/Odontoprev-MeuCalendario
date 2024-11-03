@@ -14,11 +14,12 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.meucalendario.databinding.FragmentAddEventoBinding
 import com.example.meucalendario.databinding.FragmentQuestionarioBinding
 import java.util.Calendar
 
 class AddEventoFragment: Fragment() {
-    private var _binding: FragmentQuestionarioBinding? = null
+    private var _binding: FragmentAddEventoBinding? = null
 
     private val binding get() = _binding!!
 
@@ -28,11 +29,15 @@ class AddEventoFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentQuestionarioBinding.inflate(inflater, container, false)
+        _binding = FragmentAddEventoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.calendarioFragment)
+        }
 
         binding.editTextDate.setOnClickListener {
             showDatePickerDialog(binding.editTextDate)
@@ -68,32 +73,6 @@ class AddEventoFragment: Fragment() {
             year, month, day
         )
         datePickerDialog.show()
-    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     override fun onDestroyView() {

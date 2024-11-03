@@ -10,6 +10,9 @@ material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
 navigation = "2.8.2"
+retrofit = "2.11.0"
+glide = "4.16.0"
+lifecycle = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -22,6 +25,11 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation"}
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation"}
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref="lifecycle"}
+lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref="lifecycle"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

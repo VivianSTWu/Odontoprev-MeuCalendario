@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.meucalendario.databinding.FragmentEditarConsultaBinding
 import com.example.meucalendario.databinding.FragmentEditarEventoBinding
 
@@ -25,11 +26,16 @@ class EditarEventoFragment: Fragment() {
         return binding.root
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.btnQuestionario.setOnClickListener {
-            it.findNavController().navigate(R.id.questionarioFragment)
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.calendarioFragment)
         }
 
-    }*/
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

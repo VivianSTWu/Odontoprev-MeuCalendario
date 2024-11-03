@@ -26,9 +26,18 @@ class CalendarioFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        binding.btnAddEvent.setOnClickListener {
+            findNavController().navigate(R.id.addEventoFragment)
+        }
+
         binding.eventGroup.setOnClickListener {
             findNavController().navigate(R.id.editarEventoFragment)
 
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -9,17 +9,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/Header"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="#0266FF"
-            android:gravity="bottom"
-            android:paddingBottom="15dp"
-            android:text="Meu Calendário"
+            android:orientation="horizontal"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/HeaderText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="100"
+                android:foregroundGravity="bottom|center"
+                android:gravity="bottom|center"
+                android:paddingBottom="15dp"
+                android:text="Meu Calendário"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/main_content"
