@@ -7,9 +7,9 @@ class EventRepository {
 
     // Dados fictícios
     private val mockData = listOf(
-        DataEvents(date = 5, description = "Troque sua escova de dentes por uma nova"),
-        DataEvents(date = 15, description = "Marque uma consulta com seu dentista"),
-        DataEvents(date = 30, description = "Exame agendado"),
+        DataEvents(id = "32", date = 5, description = "Troque sua escova de dentes por uma nova"),
+        DataEvents(id = "54", date = 15, description = "Marque uma consulta com seu dentista"),
+        DataEvents(id = "6768", date = 30, description = "Exame agendado"),
     )
 
     private val _items = MutableLiveData<List<DataEvents>>(mockData)

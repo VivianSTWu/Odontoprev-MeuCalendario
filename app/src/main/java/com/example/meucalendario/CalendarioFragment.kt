@@ -1,125 +1,103 @@
 package com.example.meucalendario
 
 import android.os.Bundle
-import android.provider.CalendarContract.Events
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.meucalendario.databinding.FragmentCalendarioBinding
-import com.example.meucalendario.databinding.FragmentPrimeiroAcessoBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-class CalendarioFragment: Fragment() {
+
+class CalendarioFragment : Fragment(R.layout.fragment_calendario), EventsAdapter.OnEventClickListener {
+
     private var _binding: FragmentCalendarioBinding? = null
-
     private val binding get() = _binding!!
 
-    private val viewModel : EventViewModel by viewModels()
     private lateinit var eventsAdapter: EventsAdapter
-
-/*    private lateinit var adapter: EventsAdapter
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var eventsArrayList: ArrayList<DataEvents>
-
-    lateinit var dateId: Array<Int>
-    lateinit var descriptions: Array<String>*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCalendarioBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    // Função para filtrar e ordenar eventos
+    private fun filterAndSortEvents(events: List<NetworkEvento>): List<DataEvents> {
+        val today = LocalDate.now()
+        return events
+            .filter { LocalDate.parse(it.dt_evento) >= today } // Filtra os eventos que não passaram
+            .sortedBy { it.dt_evento } // Ordena os eventos em ordem cronológica
+            .map { mapNetworkEventoToDataEvents(it) } // Mapeia para DataEvents
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        eventsAdapter = EventsAdapter(emptyList())
-        val recyclerView = binding.recyclerView
-        recyclerView.adapter = eventsAdapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Observar os dados mockados
-        viewModel.events.observe(viewLifecycleOwner) { items ->
-            eventsAdapter = EventsAdapter(items)
-            recyclerView.adapter = eventsAdapter
+        // Inicializar o adapter vazio e configurar o RecyclerView
+        eventsAdapter = EventsAdapter(emptyList(), this)
+        binding.recyclerView.apply {
+            adapter = eventsAdapter
+            layoutManager = LinearLayoutManager(requireContext())
         }
 
-/*        super.onViewCreated(view, savedInstanceState)
-        dataInitialize()
-
-        val layoutManager = LinearLayoutManager(context)
-        recyclerView = view.findViewById(R.id.recycler_view)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.setHasFixedSize(true)
-        adapter = EventsAdapter(eventsArrayList)
-        recyclerView.adapter = adapter*/
-
-        /*val service = Api.buildService()
-
-        val request = service.getAllUsersEvents()
+        // Fazer a chamada para a API
+        val service = Api.buildService()
+        val request = service.getAllUsersEvents("c67e6898-2153-4bd4-9a2c-d2137dd49b99")
 
         request.enqueue(object : Callback<List<NetworkEvento>> {
-            override fun onResponse(
-                call: Call<List<NetworkEvento>>,
-                response: Response<List<NetworkEvento>>
-            ) {
-                val list: List<NetworkEvento>? = response.body()
-
-                binding.eventDescription.text = list?.size.toString()
+            override fun onResponse(call: Call<List<NetworkEvento>>, response: Response<List<NetworkEvento>>) {
+                if (response.isSuccessful) {
+                    val networkEventos = response.body() ?: emptyList()
+                    val events = filterAndSortEvents(networkEventos)
+                    if (events.isNotEmpty()) {
+                        // Obtém o mês do primeiro evento
+                        val firstEventDate = LocalDate.parse(networkEventos[0].dt_evento)
+                        val monthName = firstEventDate.format(DateTimeFormatter.ofPattern("MMMM"))
+                        binding.textMonth.text = monthName.capitalize() // Exibe o nome do mês
+                    }
+                    eventsAdapter.setEvents(events) // Atualiza a lista de eventos no adapter
+                }
             }
 
             override fun onFailure(call: Call<List<NetworkEvento>>, error: Throwable) {
-                TODO("Not yet implemented")
+                // Tratar o erro aqui
             }
+        })
 
-        })*/
 
+        // Configurar o botão para adicionar novos eventos
         binding.btnAddEvent.setOnClickListener {
             findNavController().navigate(R.id.addEventoFragment)
         }
+    }
 
-        binding.eventGroup.setOnClickListener {
-            findNavController().navigate(R.id.editarEventoFragment)
-        }
 
+    override fun onEventClick(event: DataEvents) {
+        val action = CalendarioFragmentDirections.actionCalendarioFragmentToEditarEventoFragment(event.id)
+        findNavController().navigate(action)
+    }
+
+
+    private fun mapNetworkEventoToDataEvents(networkEvento: NetworkEvento): DataEvents {
+        val day = networkEvento.dt_evento.substring(8, 10).toInt()  // Extrair o dia
+        val description = networkEvento.desc_evento
+        val id = networkEvento.id_evento
+
+        return DataEvents(id, day, description)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-/*
-    private fun dataInitialize(){
-
-        eventsArrayList = arrayListOf<DataEvents >()
-
-        dateId = arrayOf(
-            3,5,13,30
-        )
-
-        descriptions = arrayOf(
-            "Marque uma consulta com seu dentista",
-            "Troque sua escova de dente por uma nova",
-            "Exame agendado",
-            "Exame agendado"
-        )
-
-        for (i in dateId.indices){
-            val event = DataEvents(dateId[i], descriptions[i])
-            eventsArrayList.add(event)
-        }
-    }*/
 }
-

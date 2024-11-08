@@ -1,29 +1,35 @@
 package com.example.meucalendario
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.view.WindowInsetsCompat.Type
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meucalendario.databinding.ListItemBinding
 
-class EventsAdapter( val eventList : List<DataEvents>) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
+class EventsAdapter(
+    private var eventList: List<DataEvents>,
+    private val listener: OnEventClickListener
+) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
-    inner class ViewHolder(binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val eventDate = binding.eventDay
-        val eventDesc = binding.eventDescription
+    interface OnEventClickListener {
+        fun onEventClick(event: DataEvents)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventsAdapter.ViewHolder {
+    inner class ViewHolder(private val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(event: DataEvents) {
+            binding.apply {
+                eventDay.text = event.date.toString()
+                eventDescription.text = event.description
+                root.setOnClickListener {
+                    listener.onEventClick(event)
+                }
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-
         val binding = ListItemBinding.inflate(layoutInflater, parent, false)
-
         return ViewHolder(binding)
-
-        /*val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        return ViewHolder(itemView)*/
     }
 
     override fun getItemCount(): Int {
@@ -31,10 +37,11 @@ class EventsAdapter( val eventList : List<DataEvents>) : RecyclerView.Adapter<Ev
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = eventList[position]
-        holder.eventDate.text = currentItem.date.toString()
-        holder.eventDesc.text = currentItem.description
+        holder.bind(eventList[position])
     }
 
-
+    fun setEvents(events: List<DataEvents>) {
+        eventList = events
+        notifyDataSetChanged()
+    }
 }

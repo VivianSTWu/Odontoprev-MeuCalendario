@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/primeiroAcessoFragment">
+    app:startDestination="@id/calendarioFragment">
 
     <fragment
         android:id="@+id/primeiroAcessoFragment"
@@ -45,5 +45,9 @@
     <fragment
         android:id="@+id/editarEventoFragment"
         android:name="com.example.meucalendario.EditarEventoFragment"
-        android:label="EditarEventoFragment" />
+        android:label="EditarEventoFragment">
+        <argument
+            android:name="eventId"
+            app:argType="string" />
+    </fragment>
 </navigation>
