@@ -31,6 +31,10 @@ class EditarEventoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.calendarioFragment)
+        }
+
         // Pega o ID do evento que foi passado
         eventId = arguments?.getString("eventId") ?: ""
 
